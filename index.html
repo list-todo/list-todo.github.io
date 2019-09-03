@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Hepta+Slab&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>Work To Do</title>
+</head>
+<body>
+<div class="main-body">
+    <div class="main-content">
+        <div class="time">
+            <p>Today is</p>
+            <div id="day" class="bold text-4"></div>
+            <div id="time" class="bold text-4"></div>
+        </div>
+        <h1>Work To do</h1>
+        <p class="text-1">Enter text into the input field to add items to your list.</p>
+
+        <p class="text-2"> Click the item to mark it as complete.</p>
+
+        <p class="text-3">Click the "X" to remove the item from your list.</p>
+
+        <input id="input" class="input" type="text" placeholder="New item...">
+        <button onclick="addItem()" id="enter"><i class="fa fa-pencil"></i></button>
+    </div>
+    <div class="todo-content">
+        <ul id="eachList">
+
+        </ul>
+    </div>
+</div>
+
+</body>
+<script src="main.js"></script>
+</html>
