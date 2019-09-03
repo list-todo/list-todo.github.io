@@ -14,7 +14,7 @@ function timeAndDay(){
     var dayName = ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
     var getDay = time.getDay();
     var day = dayName[getDay];
-    var today = date+' '+day+' '+year;
+    var today = day+' '+date+','+' '+year;
 
     var h = time.getHours();
     var m = time.getMinutes();
@@ -38,9 +38,9 @@ function renderList(){
     var item = '';
     $.each(TaskList, function (i, v) {
         if(v.status === 0){
-            item += '<li onclick="complete(event,'+i+')">'+v.name+'<button class="removeIt" onclick="removeIt('+i+')">X</button></li>';
+            item += '<li onclick="complete(event,'+i+')"><button class="float-right"><i class="fa fa-circle-thin"></i></button>&nbsp;&nbsp;'+v.name+'<button class="removeIt" onclick="removeIt('+i+')"><i class="fa fa-trash"></i></button></li>';
         } else {
-            item += '<li class="done" onclick="complete(event,'+i+')">'+v.name+'<button class="removeIt" onclick="removeIt('+i+')">X</button></li>';
+            item += '<li class="done" onclick="complete(event,'+i+')"><button class="float-right done"><i class="fa fa-check-circle-o"></i></button>&nbsp;&nbsp;'+v.name+'<button class="removeIt" onclick="removeIt('+i+')"><i class="fa fa-trash"></i></button></li>';
         }
     });
     $('#eachList').html(item);
@@ -71,6 +71,12 @@ function complete(e,index){
 }
 function removeIt(index){
     TaskList.splice(index, 1);
+    localStorage.setItem('TaskList', JSON.stringify(TaskList));
+    renderList();
+}
+
+function resetAll(){
+    TaskList = [];
     localStorage.setItem('TaskList', JSON.stringify(TaskList));
     renderList();
 }
